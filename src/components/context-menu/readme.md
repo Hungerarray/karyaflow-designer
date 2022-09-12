@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [wf-designer](..\workflow-designer\designer)
+ - [wf-designer](../workflow-designer/designer)
 
 ### Graph
 ```mermaid

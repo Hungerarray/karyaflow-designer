@@ -43,12 +43,12 @@ export class ContextMenu {
     this.isHidden = true;
   }
 
-  @Listen('context-menu', { target: 'body' })
+  @Listen('context_menu', { target: 'body' })
   handleContextMenu() {
     this.isHidden = true;
   }
 
-  @Event({eventName: 'context-menu', bubbles: true})
+  @Event({eventName: 'context_menu', bubbles: true})
   contextMenuEvent: EventEmitter;
 
   @Method()

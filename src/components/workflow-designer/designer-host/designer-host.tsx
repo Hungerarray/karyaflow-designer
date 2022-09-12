@@ -66,23 +66,23 @@ export class DesignerHost {
     await this.importExport.import();
   }
 
-  @Listen('activity-picked')
+  @Listen('activity_picked')
   async onActivityPicked(e: CustomEvent<ActivityDefinition>) {
     await this.designer.addActivity(e.detail);
   }
 
-  @Listen('edit-activity')
+  @Listen('edit_activity')
   async onEditActivity(e: CustomEvent<Activity>) {
     this.activityEditor.activity = e.detail;
     this.activityEditor.show = true;
   }
 
-  @Listen('add-activity')
+  @Listen('add_activity')
   async onAddActivity() {
     await this.showActivityPicker();
   }
 
-  @Listen('update-activity')
+  @Listen('update_activity')
   async onUpdateActivity(e: CustomEvent<Activity>) {
     await this.designer.updateActivity(e.detail);
   }
@@ -95,7 +95,7 @@ export class DesignerHost {
     await this.importExport.export(this.designer, e.detail);
   }
 
-  @Listen('import-workflow')
+  @Listen('import_workflow')
   async onImportWorkflow(e: CustomEvent<Workflow>) {
     this.designer.workflow = deepClone(e.detail);
   }
@@ -157,6 +157,8 @@ export class DesignerHost {
 
   componentDidLoad() {
     this.initWorkflow();
+    console.log(this.activityDefinitionsData);
+    console.log(this.workflowData);
   }
 
   render() {

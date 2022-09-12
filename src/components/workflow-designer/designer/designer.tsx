@@ -88,10 +88,10 @@ export class Designer {
     await this.updateActivityInternal(activity);
   }
 
-  @Event({ eventName: 'edit-activity' })
+  @Event({ eventName: 'edit_activity' })
   private editActivityEvent: EventEmitter;
 
-  @Event({ eventName: 'add-activity' })
+  @Event({ eventName: 'add_activity' })
   private addActivityEvent: EventEmitter;
 
   @Event()

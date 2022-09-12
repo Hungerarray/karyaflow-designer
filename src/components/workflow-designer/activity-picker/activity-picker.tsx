@@ -35,7 +35,7 @@ export class ActivityPicker {
     this.isVisible = false;
   }
 
-  @Event({eventName: 'activity-picked'})
+  @Event({eventName: 'activity_picked'})
   activitySelected: EventEmitter;
 
   private modal: any;

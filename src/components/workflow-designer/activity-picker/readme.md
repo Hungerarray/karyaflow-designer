@@ -16,7 +16,7 @@
 
 | Event             | Description | Type               |
 | ----------------- | ----------- | ------------------ |
-| `activity-picked` |             | `CustomEvent<any>` |
+| `activity_picked` |             | `CustomEvent<any>` |
 
 
 ## Methods
@@ -46,7 +46,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [wf-designer-host](..\designer-host)
+ - [wf-designer-host](../designer-host)
 
 ### Graph
 ```mermaid

@@ -20,7 +20,7 @@ export class ActivityEditor {
   @Prop({ mutable: true })
   show: boolean;
 
-  @Event({ eventName: 'update-activity' })
+  @Event({ eventName: 'update_activity' })
   submit: EventEmitter;
 
   modal: HTMLElement;

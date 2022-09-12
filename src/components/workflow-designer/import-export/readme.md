@@ -9,7 +9,7 @@
 
 | Event             | Description | Type                                                                  |
 | ----------------- | ----------- | --------------------------------------------------------------------- |
-| `import-workflow` |             | `CustomEvent<{ activities: Activity[]; connections: Connection[]; }>` |
+| `import_workflow` |             | `CustomEvent<{ activities: Activity[]; connections: Connection[]; }>` |
 
 
 ## Methods
@@ -39,7 +39,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [wf-designer-host](..\designer-host)
+ - [wf-designer-host](../designer-host)
 
 ### Graph
 ```mermaid

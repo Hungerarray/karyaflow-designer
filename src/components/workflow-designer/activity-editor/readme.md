@@ -18,18 +18,18 @@
 
 | Event             | Description | Type               |
 | ----------------- | ----------- | ------------------ |
-| `update-activity` |             | `CustomEvent<any>` |
+| `update_activity` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [wf-designer-host](..\designer-host)
+ - [wf-designer-host](../designer-host)
 
 ### Depends on
 
-- [wf-activity-renderer](..\activity-renderer)
+- [wf-activity-renderer](../activity-renderer)
 
 ### Graph
 ```mermaid

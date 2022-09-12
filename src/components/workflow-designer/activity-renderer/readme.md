@@ -31,8 +31,8 @@ Type: `Promise<Activity>`
 
 ### Used by
 
- - [wf-activity-editor](..\activity-editor)
- - [wf-designer](..\designer)
+ - [wf-activity-editor](../activity-editor)
+ - [wf-designer](../designer)
 
 ### Graph
 ```mermaid

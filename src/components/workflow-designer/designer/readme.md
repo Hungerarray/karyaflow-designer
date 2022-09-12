@@ -19,8 +19,8 @@
 
 | Event             | Description | Type               |
 | ----------------- | ----------- | ------------------ |
-| `add-activity`    |             | `CustomEvent<any>` |
-| `edit-activity`   |             | `CustomEvent<any>` |
+| `add_activity`    |             | `CustomEvent<any>` |
+| `edit_activity`   |             | `CustomEvent<any>` |
 | `workflowChanged` |             | `CustomEvent<any>` |
 
 
@@ -71,13 +71,13 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [wf-designer-host](..\designer-host)
+ - [wf-designer-host](../designer-host)
 
 ### Depends on
 
-- [wf-context-menu](..\..\context-menu)
-- [wf-context-menu-item](..\..\context-menu)
-- [wf-activity-renderer](..\activity-renderer)
+- [wf-context-menu](../../context-menu)
+- [wf-context-menu-item](../../context-menu)
+- [wf-activity-renderer](../activity-renderer)
 
 ### Graph
 ```mermaid

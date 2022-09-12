@@ -81,10 +81,10 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [wf-activity-picker](..\activity-picker)
-- [wf-activity-editor](..\activity-editor)
-- [wf-import-export](..\import-export)
-- [wf-designer](..\designer)
+- [wf-activity-picker](../activity-picker)
+- [wf-activity-editor](../activity-editor)
+- [wf-import-export](../import-export)
+- [wf-designer](../designer)
 
 ### Graph
 ```mermaid

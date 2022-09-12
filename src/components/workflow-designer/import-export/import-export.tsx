@@ -14,7 +14,7 @@ export class ImportExport {
   @Element()
   el: HTMLElement;
 
-  @Event({ eventName: 'import-workflow' })
+  @Event({ eventName: 'import_workflow' })
   importEvent: EventEmitter<Workflow>;
 
   @Method()
