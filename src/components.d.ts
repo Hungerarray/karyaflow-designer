@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Activity, ActivityDefinition, ActivityDisplayMode, ImportedWorkflowData, Workflow, WorkflowFormatDescriptor, WorkflowFormatDescriptorDictionary } from "./models";
 import { SelectItem } from "./components/field-editors/select-field/models";
 export namespace Components {
+    interface ElsaDemo {
+    }
     interface WfActivityEditor {
         "activity": Activity;
         "activityDefinitions": Array<ActivityDefinition>;
@@ -98,6 +100,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLElsaDemoElement extends Components.ElsaDemo, HTMLStencilElement {
+    }
+    var HTMLElsaDemoElement: {
+        prototype: HTMLElsaDemoElement;
+        new (): HTMLElsaDemoElement;
+    };
     interface HTMLWfActivityEditorElement extends Components.WfActivityEditor, HTMLStencilElement {
     }
     var HTMLWfActivityEditorElement: {
@@ -183,6 +191,7 @@ declare global {
         new (): HTMLWfTextFieldElement;
     };
     interface HTMLElementTagNameMap {
+        "elsa-demo": HTMLElsaDemoElement;
         "wf-activity-editor": HTMLWfActivityEditorElement;
         "wf-activity-picker": HTMLWfActivityPickerElement;
         "wf-activity-renderer": HTMLWfActivityRendererElement;
@@ -200,6 +209,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ElsaDemo {
+    }
     interface WfActivityEditor {
         "activity"?: Activity;
         "activityDefinitions"?: Array<ActivityDefinition>;
@@ -283,6 +294,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
+        "elsa-demo": ElsaDemo;
         "wf-activity-editor": WfActivityEditor;
         "wf-activity-picker": WfActivityPicker;
         "wf-activity-renderer": WfActivityRenderer;
@@ -303,6 +315,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "elsa-demo": LocalJSX.ElsaDemo & JSXBase.HTMLAttributes<HTMLElsaDemoElement>;
             "wf-activity-editor": LocalJSX.WfActivityEditor & JSXBase.HTMLAttributes<HTMLWfActivityEditorElement>;
             "wf-activity-picker": LocalJSX.WfActivityPicker & JSXBase.HTMLAttributes<HTMLWfActivityPickerElement>;
             "wf-activity-renderer": LocalJSX.WfActivityRenderer & JSXBase.HTMLAttributes<HTMLWfActivityRendererElement>;
