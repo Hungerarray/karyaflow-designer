@@ -36,8 +36,8 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@stencil/core": "^1.2.3",
-    "@stencil/sass": "^1.0.1",
+    "@stencil/core": "^2.18.0",
+    "@stencil/sass": "^2.0.0",
     "@types/jquery": "^3.3.30",
     "@types/node": "^12.6.9"
   },

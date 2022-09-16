@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop, State } from "@stencil/core";
 import { ActivityDefinition, Workflow } from "../models";
 import pluginStore from "../services/workflow-plugin-store";
 
@@ -11,8 +11,8 @@ export class KfDemo {
     @Prop() activityDefinitionsData = '[{"type": "Custom", "displayName": "Custom", "description": "Custom Activity", "category": "Custom", "designer": { "outcomes": ["Done"] }}]';
     @Prop() workflowData = '{"activities":[{"id":"timer","top":10,"left":10,"type":"TimerEvent","state":{}, "executed":true},{"id":"send-email","top":220,"left":100,"type":"SendEmail","state":{}, "blocking":true},{"id":"if-else","top":100,"left":500,"type":"IfElse","state":{}},{"id":"log","top":300,"left":400,"type":"Log","state":{}, "faulted":true, "message":{"title":"Faulted","content":"This didnt work."}}],"connections":[{"sourceActivityId":"timer","destinationActivityId":"if-else","outcome":"Done"},{"sourceActivityId":"if-else","destinationActivityId":"send-email","outcome":"True"},{"sourceActivityId":"if-else","destinationActivityId":"log","outcome":"False"}]}';
 
-    activityDefinitions: ActivityDefinition[];
-    workflow: Workflow;
+    @State() activityDefinitions: ActivityDefinition[];
+    @State() workflow: Workflow;
     
 
     private loadActivityDefinitions = (): ActivityDefinition[] => {
@@ -53,15 +53,30 @@ export class KfDemo {
     componentWillLoad() {
         this.initActivityDefinitions();
         this.initWorkflow();
+        console.group('kf-demo');
+        console.log(this.activityDefinitions);
+        console.log(this.workflow);
+        console.groupEnd();
     }
 
     render() {
 
         return (
-            <kf-renderer
-                workflow={this.workflow}  
-                activityDefinitions={this.activityDefinitions}
-            ></kf-renderer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4 pl-0">
+                        <kf-picker
+                            activityDefinitions={this.activityDefinitions}
+                        ></kf-picker>
+                    </div>
+                    <div class="col-8">
+                        <kf-renderer
+                            workflow={this.workflow}
+                            activityDefinitions={this.activityDefinitions}
+                        ></kf-renderer>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

@@ -14,6 +14,9 @@ export namespace Components {
         "activityDefinitionsData": string;
         "workflowData": string;
     }
+    interface KfPicker {
+        "activityDefinitions": ActivityDefinition[];
+    }
     interface KfRenderer {
         "activityDefinitions": ActivityDefinition[];
         "canvasHeight": string;
@@ -108,6 +111,38 @@ export namespace Components {
         "value": string;
     }
 }
+export interface KfPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLKfPickerElement;
+}
+export interface WfActivityEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfActivityEditorElement;
+}
+export interface WfActivityPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfActivityPickerElement;
+}
+export interface WfContextMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfContextMenuElement;
+}
+export interface WfDesignerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfDesignerElement;
+}
+export interface WfDesignerHostCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfDesignerHostElement;
+}
+export interface WfExportButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfExportButtonElement;
+}
+export interface WfImportExportCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWfImportExportElement;
+}
 declare global {
     interface HTMLElsaDemoElement extends Components.ElsaDemo, HTMLStencilElement {
     }
@@ -120,6 +155,12 @@ declare global {
     var HTMLKfDemoElement: {
         prototype: HTMLKfDemoElement;
         new (): HTMLKfDemoElement;
+    };
+    interface HTMLKfPickerElement extends Components.KfPicker, HTMLStencilElement {
+    }
+    var HTMLKfPickerElement: {
+        prototype: HTMLKfPickerElement;
+        new (): HTMLKfPickerElement;
     };
     interface HTMLKfRendererElement extends Components.KfRenderer, HTMLStencilElement {
     }
@@ -214,6 +255,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "elsa-demo": HTMLElsaDemoElement;
         "kf-demo": HTMLKfDemoElement;
+        "kf-picker": HTMLKfPickerElement;
         "kf-renderer": HTMLKfRendererElement;
         "wf-activity-editor": HTMLWfActivityEditorElement;
         "wf-activity-picker": HTMLWfActivityPickerElement;
@@ -238,6 +280,10 @@ declare namespace LocalJSX {
         "activityDefinitionsData"?: string;
         "workflowData"?: string;
     }
+    interface KfPicker {
+        "activityDefinitions"?: ActivityDefinition[];
+        "onActivitySelected"?: (event: KfPickerCustomEvent<ActivityDefinition>) => void;
+    }
     interface KfRenderer {
         "activityDefinitions"?: ActivityDefinition[];
         "canvasHeight"?: string;
@@ -246,12 +292,12 @@ declare namespace LocalJSX {
     interface WfActivityEditor {
         "activity"?: Activity;
         "activityDefinitions"?: Array<ActivityDefinition>;
-        "onUpdate_activity"?: (event: CustomEvent<any>) => void;
+        "onUpdate_activity"?: (event: WfActivityEditorCustomEvent<any>) => void;
         "show"?: boolean;
     }
     interface WfActivityPicker {
         "activityDefinitions"?: Array<ActivityDefinition>;
-        "onActivity_picked"?: (event: CustomEvent<any>) => void;
+        "onActivity_picked"?: (event: WfActivityPickerCustomEvent<any>) => void;
     }
     interface WfActivityRenderer {
         "activity"?: Activity;
@@ -265,7 +311,7 @@ declare namespace LocalJSX {
         "name"?: string;
     }
     interface WfContextMenu {
-        "onContext_menu"?: (event: CustomEvent<any>) => void;
+        "onContext_menu"?: (event: WfContextMenuCustomEvent<any>) => void;
         "target"?: HTMLElement | ShadowRoot;
         "targetSelector"?: string;
     }
@@ -275,16 +321,16 @@ declare namespace LocalJSX {
     interface WfDesigner {
         "activityDefinitions"?: Array<ActivityDefinition>;
         "canvasHeight"?: string;
-        "onAdd_activity"?: (event: CustomEvent<any>) => void;
-        "onEdit_activity"?: (event: CustomEvent<any>) => void;
-        "onWorkflowChanged"?: (event: CustomEvent<any>) => void;
+        "onAdd_activity"?: (event: WfDesignerCustomEvent<any>) => void;
+        "onEdit_activity"?: (event: WfDesignerCustomEvent<any>) => void;
+        "onWorkflowChanged"?: (event: WfDesignerCustomEvent<any>) => void;
         "readonly"?: boolean;
         "workflow"?: Workflow;
     }
     interface WfDesignerHost {
         "activityDefinitionsData"?: string;
         "canvasHeight"?: string;
-        "onWorkflowChanged"?: (event: CustomEvent<any>) => void;
+        "onWorkflowChanged"?: (event: WfDesignerHostCustomEvent<any>) => void;
         "pluginsData"?: string;
         "readonly"?: boolean;
         "workflow"?: Workflow;
@@ -292,7 +338,7 @@ declare namespace LocalJSX {
     }
     interface WfExportButton {
         "designerHostId"?: string;
-        "onExport"?: (event: CustomEvent<any>) => void;
+        "onExport"?: (event: WfExportButtonCustomEvent<any>) => void;
         "workflowFormats"?: WorkflowFormatDescriptorDictionary;
     }
     interface WfExpressionField {
@@ -304,7 +350,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface WfImportExport {
-        "onImport_workflow"?: (event: CustomEvent<Workflow>) => void;
+        "onImport_workflow"?: (event: WfImportExportCustomEvent<Workflow>) => void;
     }
     interface WfListField {
         "hint"?: string;
@@ -328,6 +374,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "elsa-demo": ElsaDemo;
         "kf-demo": KfDemo;
+        "kf-picker": KfPicker;
         "kf-renderer": KfRenderer;
         "wf-activity-editor": WfActivityEditor;
         "wf-activity-picker": WfActivityPicker;
@@ -351,6 +398,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "elsa-demo": LocalJSX.ElsaDemo & JSXBase.HTMLAttributes<HTMLElsaDemoElement>;
             "kf-demo": LocalJSX.KfDemo & JSXBase.HTMLAttributes<HTMLKfDemoElement>;
+            "kf-picker": LocalJSX.KfPicker & JSXBase.HTMLAttributes<HTMLKfPickerElement>;
             "kf-renderer": LocalJSX.KfRenderer & JSXBase.HTMLAttributes<HTMLKfRendererElement>;
             "wf-activity-editor": LocalJSX.WfActivityEditor & JSXBase.HTMLAttributes<HTMLWfActivityEditorElement>;
             "wf-activity-picker": LocalJSX.WfActivityPicker & JSXBase.HTMLAttributes<HTMLWfActivityPickerElement>;

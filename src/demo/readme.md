@@ -17,11 +17,13 @@
 
 ### Depends on
 
+- [kf-picker](../kf-components/kf-picker)
 - [kf-renderer](../kf-components/kf-renderer)
 
 ### Graph
 ```mermaid
 graph TD;
+  kf-demo --> kf-picker
   kf-demo --> kf-renderer
   kf-renderer --> wf-activity-renderer
   style kf-demo fill:#f9f,stroke:#333,stroke-width:4px

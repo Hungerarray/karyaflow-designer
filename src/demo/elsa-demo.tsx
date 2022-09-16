@@ -6,19 +6,19 @@ import { Component, h } from "@stencil/core";
 })
 export class ElsaDemo {
 
-	designer: HTMLWfDesignerHostElement;
+	designerHost: HTMLWfDesignerHostElement;
 
 	addActivity() {
-		this.designer.showActivityPicker();
+		this.designerHost.showActivityPicker();
 	}
 
 	createNewWorkflow() {
 		if (confirm('Are you sure you want to discard current changes?'))
-			this.designer.newWorkflow();
+			this.designerHost.newWorkflow();
 	}
 
 	importWorkflow() {
-		this.designer.import();
+		this.designerHost.import();
 	}
 
 
@@ -56,7 +56,7 @@ export class ElsaDemo {
 									data-activity-definitions='[{"type": "Custom", "displayName": "Custom", "description": "Custom Activity", "category": "Custom", "designer": { "outcomes": ["Done"] }}]'
 									data-workflow='{"activities":[{"id":"timer","top":10,"left":10,"type":"TimerEvent","state":{}, "executed":true},{"id":"send-email","top":220,"left":100,"type":"SendEmail","state":{}, "blocking":true},{"id":"if-else","top":100,"left":500,"type":"IfElse","state":{}},{"id":"log","top":300,"left":400,"type":"Log","state":{}, "faulted":true, "message":{"title":"Faulted","content":"This didnt work."}}],"connections":[{"sourceActivityId":"timer","destinationActivityId":"if-else","outcome":"Done"},{"sourceActivityId":"if-else","destinationActivityId":"send-email","outcome":"True"},{"sourceActivityId":"if-else","destinationActivityId":"log","outcome":"False"}]}'
 									readonly={false}
-									ref={el => this.designer = el}
+									ref={el => this.designerHost = el}
 								>
 								</wf-designer-host>
 							</div>

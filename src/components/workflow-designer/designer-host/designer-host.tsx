@@ -157,8 +157,6 @@ export class DesignerHost {
 
   componentDidLoad() {
     this.initWorkflow();
-    console.log(this.activityDefinitionsData);
-    console.log(this.workflowData);
   }
 
   render() {
@@ -172,11 +170,11 @@ export class DesignerHost {
         <div class="workflow-designer-wrapper dragscroll">
           <wf-designer
             activityDefinitions={activityDefinitions}
-            ref={el => this.designer = el}
             canvasHeight={this.canvasHeight}
             workflow={this.workflow}
             readonly={this.readonly}
             onWorkflowChanged={this.onWorkflowChanged}
+            ref={el => this.designer = el}
           />
         </div>
       </host>
