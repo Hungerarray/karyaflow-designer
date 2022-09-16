@@ -79,6 +79,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [elsa-demo](../../../demo)
+
 ### Depends on
 
 - [wf-activity-picker](../activity-picker)
@@ -97,6 +101,7 @@ graph TD;
   wf-designer --> wf-context-menu
   wf-designer --> wf-context-menu-item
   wf-designer --> wf-activity-renderer
+  elsa-demo --> wf-designer-host
   style wf-designer-host fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

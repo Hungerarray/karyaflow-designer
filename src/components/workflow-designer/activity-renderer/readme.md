@@ -31,12 +31,14 @@ Type: `Promise<Activity>`
 
 ### Used by
 
+ - [kf-renderer](../../../kf-components/kf-renderer)
  - [wf-activity-editor](../activity-editor)
  - [wf-designer](../designer)
 
 ### Graph
 ```mermaid
 graph TD;
+  kf-renderer --> wf-activity-renderer
   wf-activity-editor --> wf-activity-renderer
   wf-designer --> wf-activity-renderer
   style wf-activity-renderer fill:#f9f,stroke:#333,stroke-width:4px
