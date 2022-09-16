@@ -21,7 +21,6 @@ import { JsPlumbUtils } from "./jsplumb-utils";
 export class KfRenderer {
     canvas: HTMLElement;
 
-    // TODO: Do we need this ?
     @Element()
     private el: HTMLElement;
 
