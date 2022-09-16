@@ -1,4 +1,5 @@
-import { Component } from "@stencil/core";
+import { Component, h, Prop } from "@stencil/core";
+import { ActivityDefinition, Workflow } from "../../models";
 
 @Component({
     tag: 'kf-renderer',
@@ -7,13 +8,18 @@ import { Component } from "@stencil/core";
 })
 export class KfRenderer {
 
-    constructor() {
-        
-    }
+    @Prop() workflow: Workflow;
+    @Prop() activityDefinitions: ActivityDefinition[];
+
     
     render() {
        return (
-        null
+        <wf-designer
+            workflow={this.workflow}
+            activityDefinitions={this.activityDefinitions}
+            canvasHeight="100vh"
+            readonly={true}
+        ></wf-designer>
        ); 
     }
 } 

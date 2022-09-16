@@ -144,7 +144,7 @@ export class DesignerHost {
         workflow.activities = [];
 
       if (!workflow.connections)
-        workflow.connections = [];
+        workflow.connections= [];
 
       this.designer.workflow = workflow;
     }

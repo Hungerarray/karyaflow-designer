@@ -10,7 +10,13 @@ import { SelectItem } from "./components/field-editors/select-field/models";
 export namespace Components {
     interface ElsaDemo {
     }
-    interface KfDesigner {
+    interface KfDemo {
+        "activityDefinitionsData": string;
+        "workflowData": string;
+    }
+    interface KfRenderer {
+        "activityDefinitions": ActivityDefinition[];
+        "workflow": Workflow;
     }
     interface WfActivityEditor {
         "activity": Activity;
@@ -108,11 +114,17 @@ declare global {
         prototype: HTMLElsaDemoElement;
         new (): HTMLElsaDemoElement;
     };
-    interface HTMLKfDesignerElement extends Components.KfDesigner, HTMLStencilElement {
+    interface HTMLKfDemoElement extends Components.KfDemo, HTMLStencilElement {
     }
-    var HTMLKfDesignerElement: {
-        prototype: HTMLKfDesignerElement;
-        new (): HTMLKfDesignerElement;
+    var HTMLKfDemoElement: {
+        prototype: HTMLKfDemoElement;
+        new (): HTMLKfDemoElement;
+    };
+    interface HTMLKfRendererElement extends Components.KfRenderer, HTMLStencilElement {
+    }
+    var HTMLKfRendererElement: {
+        prototype: HTMLKfRendererElement;
+        new (): HTMLKfRendererElement;
     };
     interface HTMLWfActivityEditorElement extends Components.WfActivityEditor, HTMLStencilElement {
     }
@@ -200,7 +212,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "elsa-demo": HTMLElsaDemoElement;
-        "kf-designer": HTMLKfDesignerElement;
+        "kf-demo": HTMLKfDemoElement;
+        "kf-renderer": HTMLKfRendererElement;
         "wf-activity-editor": HTMLWfActivityEditorElement;
         "wf-activity-picker": HTMLWfActivityPickerElement;
         "wf-activity-renderer": HTMLWfActivityRendererElement;
@@ -220,7 +233,13 @@ declare global {
 declare namespace LocalJSX {
     interface ElsaDemo {
     }
-    interface KfDesigner {
+    interface KfDemo {
+        "activityDefinitionsData"?: string;
+        "workflowData"?: string;
+    }
+    interface KfRenderer {
+        "activityDefinitions"?: ActivityDefinition[];
+        "workflow"?: Workflow;
     }
     interface WfActivityEditor {
         "activity"?: Activity;
@@ -306,7 +325,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "elsa-demo": ElsaDemo;
-        "kf-designer": KfDesigner;
+        "kf-demo": KfDemo;
+        "kf-renderer": KfRenderer;
         "wf-activity-editor": WfActivityEditor;
         "wf-activity-picker": WfActivityPicker;
         "wf-activity-renderer": WfActivityRenderer;
@@ -328,7 +348,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "elsa-demo": LocalJSX.ElsaDemo & JSXBase.HTMLAttributes<HTMLElsaDemoElement>;
-            "kf-designer": LocalJSX.KfDesigner & JSXBase.HTMLAttributes<HTMLKfDesignerElement>;
+            "kf-demo": LocalJSX.KfDemo & JSXBase.HTMLAttributes<HTMLKfDemoElement>;
+            "kf-renderer": LocalJSX.KfRenderer & JSXBase.HTMLAttributes<HTMLKfRendererElement>;
             "wf-activity-editor": LocalJSX.WfActivityEditor & JSXBase.HTMLAttributes<HTMLWfActivityEditorElement>;
             "wf-activity-picker": LocalJSX.WfActivityPicker & JSXBase.HTMLAttributes<HTMLWfActivityPickerElement>;
             "wf-activity-renderer": LocalJSX.WfActivityRenderer & JSXBase.HTMLAttributes<HTMLWfActivityRendererElement>;
