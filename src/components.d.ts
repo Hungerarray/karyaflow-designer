@@ -10,6 +10,8 @@ import { SelectItem } from "./components/field-editors/select-field/models";
 export namespace Components {
     interface ElsaDemo {
     }
+    interface KfDesigner {
+    }
     interface WfActivityEditor {
         "activity": Activity;
         "activityDefinitions": Array<ActivityDefinition>;
@@ -106,6 +108,12 @@ declare global {
         prototype: HTMLElsaDemoElement;
         new (): HTMLElsaDemoElement;
     };
+    interface HTMLKfDesignerElement extends Components.KfDesigner, HTMLStencilElement {
+    }
+    var HTMLKfDesignerElement: {
+        prototype: HTMLKfDesignerElement;
+        new (): HTMLKfDesignerElement;
+    };
     interface HTMLWfActivityEditorElement extends Components.WfActivityEditor, HTMLStencilElement {
     }
     var HTMLWfActivityEditorElement: {
@@ -192,6 +200,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "elsa-demo": HTMLElsaDemoElement;
+        "kf-designer": HTMLKfDesignerElement;
         "wf-activity-editor": HTMLWfActivityEditorElement;
         "wf-activity-picker": HTMLWfActivityPickerElement;
         "wf-activity-renderer": HTMLWfActivityRendererElement;
@@ -210,6 +219,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ElsaDemo {
+    }
+    interface KfDesigner {
     }
     interface WfActivityEditor {
         "activity"?: Activity;
@@ -295,6 +306,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "elsa-demo": ElsaDemo;
+        "kf-designer": KfDesigner;
         "wf-activity-editor": WfActivityEditor;
         "wf-activity-picker": WfActivityPicker;
         "wf-activity-renderer": WfActivityRenderer;
@@ -316,6 +328,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "elsa-demo": LocalJSX.ElsaDemo & JSXBase.HTMLAttributes<HTMLElsaDemoElement>;
+            "kf-designer": LocalJSX.KfDesigner & JSXBase.HTMLAttributes<HTMLKfDesignerElement>;
             "wf-activity-editor": LocalJSX.WfActivityEditor & JSXBase.HTMLAttributes<HTMLWfActivityEditorElement>;
             "wf-activity-picker": LocalJSX.WfActivityPicker & JSXBase.HTMLAttributes<HTMLWfActivityPickerElement>;
             "wf-activity-renderer": LocalJSX.WfActivityRenderer & JSXBase.HTMLAttributes<HTMLWfActivityRendererElement>;
