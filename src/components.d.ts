@@ -16,6 +16,7 @@ export namespace Components {
     }
     interface KfRenderer {
         "activityDefinitions": ActivityDefinition[];
+        "canvasHeight": string;
         "workflow": Workflow;
     }
     interface WfActivityEditor {
@@ -239,6 +240,7 @@ declare namespace LocalJSX {
     }
     interface KfRenderer {
         "activityDefinitions"?: ActivityDefinition[];
+        "canvasHeight"?: string;
         "workflow"?: Workflow;
     }
     interface WfActivityEditor {
